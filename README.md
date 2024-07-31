@@ -1,4 +1,4 @@
-# Netflix GPT
+# Netflix Gemini
 
 - Create React App
 - Configure Tailwind CSS

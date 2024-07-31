@@ -151,7 +151,7 @@ const MovieDetails = () => {
                   />
                 </div>
                 <div
-                  className={`md:w-2/3 md:pl-8 mt-4 md:mt-0 transition-opacity duration-1000 ${
+                  className={`md:w-2/3 md:pl-8 mt-4 md:mt-52 transition-opacity duration-1000 ${
                     showText ? "opacity-100" : "opacity-0"
                   }`}
                 >

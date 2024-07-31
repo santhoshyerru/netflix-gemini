@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { toggleGptSearchView } from "../utils/gptSlice";
@@ -11,6 +11,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const location = useLocation();
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
     signOut(auth)
@@ -31,7 +32,10 @@ const Header = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse");
+        if (location.pathname === "/") {
+          navigate("/browse");
+        }
+        // navigate("/browse");
       } else {
         dispatch(removeUser());
         navigate("/");
